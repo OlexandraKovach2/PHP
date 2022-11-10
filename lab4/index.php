@@ -27,6 +27,15 @@ $Collections = new Collection([$Project1, $Project2]);
 $dbh=new PDO('mysql:host=localhost;dbname=lab4', 'root', 'root');
 $Database = new Repository($dbh);
 $Database->addProject('Олександра Ковач',1000,'5,5,5');
-echo '<br> ------------------ <br>';
+$DBArray = $Database->readFactories();
+echo "<table border='1px solid'>";
+for($i = 0; $i < count($DBArray); $i++){
+    echo '<tr>';
+    echo '<td>' . $DBArray[$i]['id'] . '</td>';
+    echo '<td>' . $DBArray[$i]['author'] . '</td>';
+    echo '<td>' . $DBArray[$i]['budget'] . '</td>';
+    echo '<td>' . $DBArray[$i]['rating'] . '</td>';
+    echo  '</tr>';
+}
 
 
