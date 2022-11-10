@@ -27,7 +27,8 @@ $Collections = new Collection([$Project1, $Project2]);
 $dbh=new PDO('mysql:host=localhost;dbname=lab4', 'root', 'root');
 $Database = new Repository($dbh);
 $Database->addProject('Олександра Ковач',1000,'5,5,5');
-$DBArray = $Database->readFactories();
+$Database->updateProject(3, "Ihor Dovhanych", 5000, "4,4,6");
+$DBArray = $Database->readProjects();
 echo "<table border='1px solid'>";
 for($i = 0; $i < count($DBArray); $i++){
     echo '<tr>';

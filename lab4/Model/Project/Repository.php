@@ -16,15 +16,16 @@ class Repository
             "'" . $userRating . "')"
         );
     }
-    public function readFactories()
+    public function readProjects()
     {
         return $this->dbh->query('SELECT * FROM projects')->fetchAll();
     }
-    public function updateProject(int $userId, string $userAuthor, int $userBudget,  string $userRating){
+    public function updateProject(int $userId, string $userAuthor, int $userBudget, string $userRating)
+    {
         $this->dbh->query('UPDATE projects SET ' .
-            'author = ' . $userAuthor . ', ' .
-            'budget = ' . $userBudget . ', ' .
-            'rating = ' . $userRating . ' , ' .
+            'author ="' . $userAuthor . '", ' .
+            'budget =' . $userBudget . ', ' .
+            'rating ="' . $userRating . '"' .
             'WHERE id = ' . $userId);
     }
 
